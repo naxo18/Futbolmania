@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+header {
+    background-color: #111;
+    padding: 20px 50px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #00c853;
+}
+
+.carrito {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.hero {
+    min-height: 500px;
+
+    background-image: url("../img/estadio.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.hero-contenido {
+    background-color: rgba(0, 0, 0, 0.7);
+
+    color: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    background-color: #00c853;
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #009624;
+}
+
+.productos-destacados {
+    padding: 50px;
+    text-align: center;
+}
+
+.productos-destacados h2 {
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.productos-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: white;
+
+    width: 280px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.producto h3 {
+    margin: 15px 0;
+}
+
+.producto p {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.producto button {
+    border: none;
+
+    background-color: #111;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.producto button:hover {
+    background-color:  #00c853;
+}
+
+footer {
+    background-color: #111;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 30px;
+
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .productos-destacados {
+        padding: 30px 15px;
+    }
+
+    
+}
+

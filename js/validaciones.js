@@ -78,6 +78,30 @@ if (formularioRegistro) {
 
     });
 
+    const password = document.getElementById("password").value;
+
+const errorPassword = document.getElementById("error-password");
+
+errorPassword.textContent = "";
+
+
+if (password.trim() === "") {
+
+    errorPassword.textContent =
+        "La contraseña es obligatoria.";
+
+    valido = false;
+
+}
+else if (password.length < 4 || password.length > 10) {
+
+    errorPassword.textContent =
+        "La contraseña debe tener entre 4 y 10 caracteres.";
+
+    valido = false;
+
+}
+
 }
 
 
@@ -91,57 +115,132 @@ if (formularioLogin) {
 
         event.preventDefault();
 
-        const correo = document.getElementById("correo").value;
-        const password = document.getElementById("password").value;
 
-        const errorCorreo = document.getElementById("error-correo");
-        const errorPassword = document.getElementById("error-password");
+        const correo =
+            document.getElementById("correo").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+
+        const errorCorreo =
+            document.getElementById("error-correo");
+
+        const errorPassword =
+            document.getElementById("error-password");
+
 
         errorCorreo.textContent = "";
         errorPassword.textContent = "";
 
+
         let valido = true;
 
-        if (correo.trim() === "") {
+
+        // Validar correo
+
+        if (correo === "") {
 
             errorCorreo.textContent =
-                "El correo es obligatorio";
+                "El correo es obligatorio.";
 
             valido = false;
 
-        } else if (correo.length > 100) {
+        }
+        else if (correo.length > 100) {
 
             errorCorreo.textContent =
-                "El correo no puede superar los 100 caracteres";
+                "El correo no puede superar los 100 caracteres.";
 
             valido = false;
 
-        } else if (!correoValido(correo)) {
+        }
+        else if (!correoValido(correo)) {
 
             errorCorreo.textContent =
-                "Correo no permitido";
+                "Use un correo @duoc.cl, @profesor.duoc.cl o @gmail.com.";
 
             valido = false;
         }
 
-        if (password.trim() === "") {
+
+        // Validar contraseña
+
+        if (password === "") {
 
             errorPassword.textContent =
-                "La contraseña es obligatoria";
+                "La contraseña es obligatoria.";
 
             valido = false;
 
-        } else if (password.length < 4 || password.length > 10) {
+        }
+        else if (password.length < 4 || password.length > 10) {
 
             errorPassword.textContent =
-                "La contraseña debe tener entre 4 y 10 caracteres";
+                "La contraseña debe tener entre 4 y 10 caracteres.";
 
             valido = false;
         }
 
-        if (valido) {
 
-            alert("Inicio de sesión correcto");
+        // Si hay errores detener el login
+
+        if (!valido) {
+
+            return;
+        }
+
+
+        // Buscar usuario
+
+        const usuarioEncontrado = usuarios.find(function(usuario) {
+
+            return usuario.correo === correo &&
+                   usuario.password === password;
+
+        });
+
+
+        // Usuario incorrecto
+
+        if (!usuarioEncontrado) {
+
+            errorPassword.textContent =
+                "Correo o contraseña incorrectos.";
+
+            return;
+        }
+
+
+        // Guardar sesión
+
+        localStorage.setItem(
+            "usuarioActual",
+            JSON.stringify(usuarioEncontrado)
+        );
+
+
+        alert(
+            "Bienvenido/a " +
+            usuarioEncontrado.nombre
+        );
+
+
+        // Redireccionar según el tipo de usuario
+
+        if (usuarioEncontrado.tipo === "Admin") {
+
+            window.location.href = "admin/index.html";
+
+        }
+        else if (usuarioEncontrado.tipo === "Seller") {
+
+            window.location.href = "admin/index.html";
+
+        }
+        else {
+
+            window.location.href = "../index.html";
 
         }
 

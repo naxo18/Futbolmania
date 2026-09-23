@@ -5,104 +5,120 @@
 
     <meta charset="UTF-8">
 
-    <title>Productos Admin</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet"
-          href="../../css/style.css">
+    <title>Administrar Productos - Futbolmanía</title>
 
-    <link rel="stylesheet"
-          href="../../css/admin.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <link rel="stylesheet" href="../../css/admin.css">
 
 </head>
 
 <body>
 
-<div class="admin-container">
+    <header>
 
-    <aside class="admin-menu">
+        <nav>
 
-        <h2> Futbolmania</h2>
+            <h1> FUTBOLMANÍA</h1>
 
-        <a href="index.html">Inicio</a>
+            <ul>
 
-        <a href="productos.html">
-            Productos
-        </a>
+                <li>
+                    <a href="index.html">
+                        Panel
+                    </a>
+                </li>
 
-        <a href="nuevo-producto.html">
-            Nuevo producto
-        </a>
+                <li>
+                    <a href="productos.html">
+                        Productos
+                    </a>
+                </li>
 
-        <a href="usuarios.html">
-            Usuarios
-        </a>
+                <li>
+                    <a href="usuarios.html">
+                        Usuarios
+                    </a>
+                </li>
 
-    </aside>
+                <li>
+                    <a href="../../index.html">
+                        Volver a la tienda
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
 
 
-    <main class="admin-contenido">
+    <main>
 
-        <h1>Listado de productos</h1>
+        <section class="admin-container">
 
-        <a href="nuevo-producto.html">
-             Nuevo producto
-        </a>
+            <h2>Administración de productos</h2>
 
-        <table class="tabla">
+            <a
+                href="nuevo-producto.html"
+                class="boton-admin">
+                 Nuevo producto
+            </a>
 
-            <thead>
 
-                <tr>
+            <div class="tabla-container">
 
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Categoria</th>
+                <table>
 
-                </tr>
+                    <thead>
 
-            </thead>
+                        <tr>
 
-            <tbody>
+                            <th>Código</th>
 
-                <tr>
+                            <th>Nombre</th>
 
-                    <td>CAM001</td>
-                    <td>Camiseta Barcelona</td>
-                    <td>$29.990</td>
-                    <td>20</td>
-                    <td>Camisetas</td>
+                            <th>Precio</th>
 
-                </tr>
+                            <th>Stock</th>
 
-                <tr>
+                            <th>Categoría</th>
 
-                    <td>BAL001</td>
-                    <td>Balón Adidas</td>
-                    <td>$24.990</td>
-                    <td>15</td>
-                    <td>Balones</td>
+                            <th>Acciones</th>
 
-                </tr>
+                        </tr>
 
-                <tr>
+                    </thead>
 
-                    <td>BOT001</td>
-                    <td>Botines Nike</td>
-                    <td>$59.990</td>
-                    <td>10</td>
-                    <td>Botines</td>
 
-                </tr>
+                    <tbody id="tabla-productos">
 
-            </tbody>
+                    </tbody>
 
-        </table>
+                </table>
+
+            </div>
+
+        </section>
 
     </main>
 
-</div>
+
+    <footer>
+
+        <p>
+            © 2026 Futbolmanía - Todos los derechos reservados
+        </p>
+
+    </footer>
+
+
+    <script src="../../js/admin-productos.js"></script>
 
 </body>
+
 </html>

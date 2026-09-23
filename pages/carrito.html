@@ -35,17 +35,55 @@
 
 <section class="productos-destacados">
 
-    <h2>Mi carrito</h2>
+<h2>Mi carrito</h2>
 
-    <div id="carrito-container"></div>
+<div id="carrito-container" class="productos-container"></div>
 
-    <h3 id="total"></h3>
+<h3 id="total"></h3>
 
-    <button onclick="vaciarCarrito()">
-        Vaciar carrito
-    </button>
+<div class="campo">
+    <label for="direccion-entrega">Dirección de entrega</label>
+    <textarea
+        id="direccion-entrega"
+        maxlength="300"
+        placeholder="Ingresa la dirección para el despacho a domicilio"
+    ></textarea>
+    <small id="error-direccion-entrega"></small>
+</div>
+
+<button onclick="vaciarCarrito()">
+    Vaciar carrito
+</button>
+
+<button onclick="mostrarResumenCompra()">
+    Pagar
+</button>
 
 </section>
+
+<div id="resumen-modal" class="modal" style="display: none;">
+
+    <div class="modal-contenido">
+
+        <h2>Resumen de compra</h2>
+
+        <div id="resumen-container"></div>
+
+<h3 id="resumen-total"></h3>
+
+<p id="resumen-direccion"></p>
+
+<button onclick="cerrarResumen()">
+    Cerrar
+</button>
+
+        <button onclick="confirmarPago()">
+            Confirmar pago
+        </button>
+
+    </div>
+
+</div>
 
 </main>
 

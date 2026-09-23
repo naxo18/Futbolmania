@@ -22,29 +22,33 @@ const productos = [
 const contenedor =
     document.getElementById("lista-productos");
 
-productos.forEach(producto => {
+if (contenedor) {
 
-    contenedor.innerHTML += `
+    productos.forEach(producto => {
 
-        <article class="producto">
+        contenedor.innerHTML += `
 
-            <img src="${producto.imagen}"
-                 alt="${producto.nombre}">
+            <article class="producto">
 
-            <h3>${producto.nombre}</h3>
+                <img src="${producto.imagen}"
+                     alt="${producto.nombre}">
 
-            <p>$${producto.precio}</p>
+                <h3>${producto.nombre}</h3>
 
-            <button onclick="agregarCarrito(${producto.id})">
-                Añadir
-            </button>
+                <p>$${producto.precio}</p>
 
-            <a href="detalle-producto.html">
-                Ver detalle
-            </a>
+                <button onclick="agregarCarrito(${producto.id})">
+                    Añadir
+                </button>
 
-        </article>
+                <a href="detalle-producto.html?id=${producto.id}">
+                    Ver detalle
+                </a>
 
-    `;
+            </article>
 
-});
+        `;
+
+    });
+
+}

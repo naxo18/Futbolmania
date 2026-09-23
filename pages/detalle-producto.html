@@ -33,22 +33,9 @@
 
 <main>
 
-<section class="formulario-contenedor">
+<section class="formulario-contenedor" id="detalle-producto">
 
-    <img src="../img/camiseta.jpg" alt="Camiseta Barcelona">
-
-    <h2>Camiseta Barcelona</h2>
-
-    <p>
-        Camiseta deportiva ideal para los fanaticos
-        del fútbol.
-    </p>
-
-    <h3>$29.990</h3>
-
-    <button onclick="agregarCarrito(1)">
-        Añadir al carrito
-    </button>
+    <h2>Cargando producto...</h2>
 
 </section>
 
@@ -59,6 +46,53 @@
 </footer>
 
 <script src="../js/carrito.js"></script>
+<script src="../js/productos.js"></script>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const id = Number(params.get("id")) || 1;
+
+const productoDetalle = productos.find(
+    p => p.id === id
+);
+
+const contenedorDetalle =
+    document.getElementById("detalle-producto");
+
+if (productoDetalle) {
+
+    contenedorDetalle.innerHTML = `
+
+        <img src="${productoDetalle.imagen}"
+             alt="${productoDetalle.nombre}">
+
+        <h2>${productoDetalle.nombre}</h2>
+
+        <p>
+            Producto deportivo ideal para los fanaticos
+            del futbol.
+        </p>
+
+        <h3>$${productoDetalle.precio}</h3>
+
+        <button onclick="agregarCarrito(${productoDetalle.id})">
+            Añadir al carrito
+        </button>
+
+    `;
+
+}
+else {
+
+    contenedorDetalle.innerHTML = `
+        <h2>Producto no encontrado</h2>
+    `;
+
+}
+
+</script>
 
 </body>
 </html>

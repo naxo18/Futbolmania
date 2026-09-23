@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro | Futbolmania</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                  FUTBOLMANIA
+            </div>
+
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="blogs.html">Blog</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="formulario-contenedor">
+
+            <h1>Crear cuenta</h1>
+
+            <p>Registrate en Futbolmania</p>
+
+
+            <form id="formulario-registro">
+
+                <div class="campo">
+
+                    <label for="run">
+                        RUN
+                    </label>
+
+                    <input
+                        type="text"
+                        id="run"
+                        name="run"
+                        placeholder="Ej: 19011022K"
+                        autocomplete="off"
+                    >
+
+                    <small id="error-run"></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="nombre">
+                        Nombre
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        maxlength="50"
+                        autocomplete="given-name"
+                    >
+
+                    <small id="error-nombre"></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="apellidos">
+                        Apellidos
+                    </label>
+
+                    <input
+                        type="text"
+                        id="apellidos"
+                        name="apellidos"
+                        maxlength="100"
+                        autocomplete="family-name"
+                    >
+
+                    <small id="error-apellidos"></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="correo">
+                        Correo electronico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        maxlength="100"
+                        placeholder="ejemplo@gmail.com"
+                        autocomplete="email"
+                    >
+
+                    <small id="error-correo"></small>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="fecha">
+                        Fecha de nacimiento
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        autocomplete="bday"
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="tipoUsuario">
+                        Tipo de usuario
+                    </label>
+
+                    <select id="tipoUsuario" name="tipoUsuario">
+
+                        <option value="">
+                            Seleccionar
+                        </option>
+
+                        <option value="cliente">
+                            Cliente
+                        </option>
+
+                        <option value="vendedor">
+                            Vendedor
+                        </option>
+
+                        <option value="administrador">
+                            Administrador
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="region">
+                        Region
+                    </label>
+
+                    <select id="region" name="region">
+
+                        <option value="">
+                            Seleccionar region
+                        </option>
+
+                        <option value="metropolitana">
+                            Region Metropolitana
+                        </option>
+
+                        <option value="valparaiso">
+                            Valparaiso
+                        </option>
+
+                        <option value="biobio">
+                            Biobio
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="comuna">
+                        Comuna
+                    </label>
+
+                    <select id="comuna" name="comuna">
+
+                        <option value="">
+                            Seleccionar comuna
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="direccion">
+                        Dirección
+                    </label>
+
+                    <textarea
+                        id="direccion"
+                        name="direccion"
+                        maxlength="300"
+                        placeholder="Ingresa tu dirección"
+                    ></textarea>
+
+                    <small id="error-direccion"></small>
+
+                </div>
+
+
+                <button type="submit" class="btn">
+                    Crear cuenta
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 Futbolmania</p>
+
+        <p>
+            Tienda deportiva especializada en fútbol.
+        </p>
+
+    </footer>
+
+
+    <script src="../js/validaciones.js"></script>
+    <script src="../js/regiones.js"></script>
+
+
+</body>
+
+</html>

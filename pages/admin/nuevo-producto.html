@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Nuevo Producto</title>
+
+    <link rel="stylesheet"
+          href="../../css/style.css">
+
+    <link rel="stylesheet"
+          href="../../css/admin.css">
+
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <aside class="admin-menu">
+
+        <h2> Futbolmania</h2>
+
+        <a href="index.html">Inicio</a>
+
+        <a href="productos.html">
+            Productos
+        </a>
+
+        <a href="nuevo-producto.html">
+            Nuevo producto
+        </a>
+
+        <a href="usuarios.html">
+            Usuarios
+        </a>
+
+    </aside>
+
+
+    <main class="admin-contenido">
+
+        <h1>Crear nuevo producto</h1>
+
+        <form id="form-producto">
+
+            <div class="campo">
+
+                <label>Codigo:</label>
+
+                <input type="text" id="codigo">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Nombre:</label>
+
+                <input type="text" id="nombre-producto">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Descripcion:</label>
+
+                <textarea id="descripcion"></textarea>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Precio:</label>
+
+                <input type="number"
+                       id="precio"
+                       min="0"
+                       step="0.01">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Stock:</label>
+
+                <input type="number"
+                       id="stock"
+                       min="0">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Stock critico:</label>
+
+                <input type="number"
+                       id="stock-critico"
+                       min="0">
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Categoria:</label>
+
+                <select id="categoria">
+
+                    <option value="">
+                        Seleccione
+                    </option>
+
+                    <option>
+                        Camisetas
+                    </option>
+
+                    <option>
+                        Balones
+                    </option>
+
+                    <option>
+                        Botines
+                    </option>
+
+                    <option>
+                        Accesorios
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>Imagen:</label>
+
+                <input type="file">
+
+            </div>
+
+
+            <button type="submit">
+                Guardar producto
+            </button>
+
+        </form>
+
+    </main>
+
+</div>
+
+<script>
+
+const formulario =
+    document.getElementById("form-producto");
+
+formulario.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const codigo =
+        document.getElementById("codigo").value;
+
+    const nombre =
+        document.getElementById("nombre-producto").value;
+
+    const precio =
+        document.getElementById("precio").value;
+
+    const stock =
+        document.getElementById("stock").value;
+
+    const categoria =
+        document.getElementById("categoria").value;
+
+    if (codigo.length < 3) {
+
+        alert("El código debe tener mínimo 3 caracteres");
+        return;
+
+    }
+
+    if (nombre.trim() === "") {
+
+        alert("El nombre es obligatorio");
+        return;
+
+    }
+
+    if (precio === "" || precio < 0) {
+
+        alert("Ingrese un precio válido");
+        return;
+
+    }
+
+    if (stock === "" || stock < 0) {
+
+        alert("Ingrese un stock válido");
+        return;
+
+    }
+
+    if (categoria === "") {
+
+        alert("Seleccione una categoría");
+        return;
+
+    }
+
+    alert("Producto creado correctamente");
+
+});
+
+</script>
+
+</body>
+</html>

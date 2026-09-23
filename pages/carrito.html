@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle producto - Futbolmania</title>
+    <title>Carrito - Futbolmania</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -33,21 +33,16 @@
 
 <main>
 
-<section class="formulario-contenedor">
+<section class="productos-destacados">
 
-    <img src="../img/camiseta.jpg" alt="Camiseta Barcelona">
+    <h2>Mi carrito</h2>
 
-    <h2>Camiseta Barcelona</h2>
+    <div id="carrito-container"></div>
 
-    <p>
-        Camiseta deportiva ideal para los fanaticos
-        del fútbol.
-    </p>
+    <h3 id="total"></h3>
 
-    <h3>$29.990</h3>
-
-    <button onclick="agregarCarrito(1)">
-        Añadir al carrito
+    <button onclick="vaciarCarrito()">
+        Vaciar carrito
     </button>
 
 </section>

@@ -1,0 +1,71 @@
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.admin-menu {
+    width: 230px;
+    background: #111;
+    color: white;
+    padding: 25px;
+}
+
+.admin-menu h2 {
+    color: #39ff14;
+}
+
+.admin-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.admin-menu a:hover {
+    background: #39ff14;
+    color: black;
+}
+
+.admin-contenido {
+    flex: 1;
+    padding: 40px;
+}
+
+.admin-cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.admin-cards article {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ccc;
+    width: 250px;
+}
+
+.admin-cards a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla th {
+    background: #111;
+    color: white;
+}

@@ -1,27 +1,3 @@
-// Productos disponibles
-
-const productosCarrito = [
-    {
-        id: 1,
-        nombre: "Camiseta Barcelona",
-        precio: 29990,
-        imagen: "../img/camiseta.jpg"
-    },
-    {
-        id: 2,
-        nombre: "Balón Adidas",
-        precio: 24990,
-        imagen: "../img/balonadidas.jpg"
-    },
-    {
-        id: 3,
-        nombre: "Botines Nike",
-        precio: 59990,
-        imagen: "../img/zapatos.jpg"
-    }
-];
-
-
 // Obtener carrito guardado
 
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -31,7 +7,7 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function agregarCarrito(id) {
 
-    const producto = productosCarrito.find(
+    const producto = productos.find(
         producto => producto.id === id
     );
 

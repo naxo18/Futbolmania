@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width-device width, initial-scale=1.0 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Futbolmania | Tienda Deportiva</title>
     <link rel="stylesheet" href="css/style.css">
@@ -25,7 +25,7 @@
                 <li><a href="pages/registro.html">REGISTRO</a></li>
             </ul>
 
-            <a href="pages/productos.html" class="carrito"></a>
+            <a href="pages/carrito.html" class="carrito">CARRITO</a>
         </nav>
 
     </header>
@@ -64,7 +64,7 @@
 
                     <p>$29.990</p>
 
-                    <button>
+                    <button onclick="agregarCarrito(1)">
                         añadir al carrito
                     </button>
 
@@ -78,7 +78,7 @@
 
                     <p>$59.990</p>
 
-                    <button>
+                    <button onclick="agregarCarrito(3)">
                         añadir al carrito
                     </button>
 
@@ -90,9 +90,9 @@
 
                     <h3>Balon Adidas</h3>
 
-                    <p>$19.990</p>
+                    <p>$24.990</p>
 
-                    <button>
+                    <button onclick="agregarCarrito(2)">
                         añadir al carrito
                     </button>
 
@@ -119,15 +119,15 @@
 
             <h2>video destacado</h2>
 
-            <iframe 
-            width = "560"
-                height = "315"
-                src = "https://youtu.be/ZHzly_huCb4?si=Uco9WGYakK-mHKbn"
-                title = "video"
-                allowfullscreen>
-            </iframe>
+            <video
+                src="video/videotienda.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls>
+            </video>
 
-            
         </section>
 
     </main>
@@ -141,6 +141,9 @@
 
     </footer>
 
+
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
 
 </body>
 

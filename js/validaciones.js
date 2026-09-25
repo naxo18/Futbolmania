@@ -14,14 +14,17 @@ if (formularioRegistro) {
 
         let valido = true;
 
-        const nombre = document.getElementById("nombre").value;
-        const correo = document.getElementById("correo").value;
-        const run = document.getElementById("run").value;
-        const apellidos = document.getElementById("apellidos").value;
-        const direccion = document.getElementById("direccion").value;
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const run = document.getElementById("run").value.trim();
+        const apellidos = document.getElementById("apellidos").value.trim();
+        const direccion = document.getElementById("direccion").value.trim();
+        const password = document.getElementById("password").value;
+        const tipoUsuario = document.getElementById("tipoUsuario").value;
 
         document.getElementById("error-nombre").textContent = "";
         document.getElementById("error-correo").textContent = "";
+        document.getElementById("error-password").textContent = "";
 
         if (nombre.trim() === "") {
             document.getElementById("error-nombre").textContent =
@@ -44,6 +47,17 @@ if (formularioRegistro) {
         if (correo.length > 100) {
             document.getElementById("error-correo").textContent =
                 "El correo no puede superar los 100 caracteres";
+            valido = false;
+        }
+
+        if (password.trim() === "") {
+            document.getElementById("error-password").textContent =
+                "La contraseña es obligatoria.";
+            valido = false;
+        }
+        else if (password.length < 4 || password.length > 10) {
+            document.getElementById("error-password").textContent =
+                "La contraseña debe tener entre 4 y 10 caracteres.";
             valido = false;
         }
 
@@ -72,35 +86,47 @@ if (formularioRegistro) {
             valido = false;
         }
 
+        if (tipoUsuario === "") {
+            alert("Debes seleccionar un tipo de usuario");
+            valido = false;
+        }
+
         if (valido) {
+
+            const existe = usuarios.some(function(usuario) {
+                return usuario.correo === correo ||
+                       usuario.run === run;
+            });
+
+            if (existe) {
+                document.getElementById("error-correo").textContent =
+                    "Este correo o RUN ya está registrado.";
+                return;
+            }
+
+            const nuevoUsuario = {
+                run: run,
+                nombre: nombre,
+                apellidos: apellidos,
+                correo: correo,
+                password: password,
+                direccion: direccion,
+                tipo: tipoUsuario
+            };
+
+            usuarios.push(nuevoUsuario);
+
+            localStorage.setItem(
+                "usuarios",
+                JSON.stringify(usuarios)
+            );
+
             alert("Registro realizado correctamente");
+
+            window.location.href = "login.html";
         }
 
     });
-
-    const password = document.getElementById("password").value;
-
-const errorPassword = document.getElementById("error-password");
-
-errorPassword.textContent = "";
-
-
-if (password.trim() === "") {
-
-    errorPassword.textContent =
-        "La contraseña es obligatoria.";
-
-    valido = false;
-
-}
-else if (password.length < 4 || password.length > 10) {
-
-    errorPassword.textContent =
-        "La contraseña debe tener entre 4 y 10 caracteres.";
-
-    valido = false;
-
-}
 
 }
 
@@ -228,12 +254,11 @@ if (formularioLogin) {
 
         // Redireccionar según el tipo de usuario
 
-        if (usuarioEncontrado.tipo === "Admin") {
+        const tipoAdmin =
+            usuarioEncontrado.tipo.toLowerCase() === "administrador"
+            || usuarioEncontrado.tipo.toLowerCase() === "vendedor";
 
-            window.location.href = "admin/index.html";
-
-        }
-        else if (usuarioEncontrado.tipo === "Seller") {
+        if (tipoAdmin) {
 
             window.location.href = "admin/index.html";
 

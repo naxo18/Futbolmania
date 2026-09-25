@@ -18,7 +18,7 @@ const productosIniciales = [
         stock: 15,
         stockCritico: 5,
         categoria: "Balones",
-        imagen: "../img/balon.jpg"
+        imagen: "../img/balonadidas.jpg"
     },
     {
         codigo: "P003",
@@ -28,7 +28,7 @@ const productosIniciales = [
         stock: 8,
         stockCritico: 2,
         categoria: "Botines",
-        imagen: "../img/botines.jpg"
+        imagen: "../img/zapatos.jpg"
     }
 ];
 

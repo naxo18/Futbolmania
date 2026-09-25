@@ -44,7 +44,7 @@
 
         <h1>Crear nuevo producto</h1>
 
-        <form id="form-producto">
+        <form id="formulario-producto">
 
             <div class="campo">
 
@@ -59,7 +59,7 @@
 
                 <label>Nombre:</label>
 
-                <input type="text" id="nombre-producto">
+                <input type="text" id="nombre">
 
             </div>
 
@@ -101,7 +101,7 @@
                 <label>Stock critico:</label>
 
                 <input type="number"
-                       id="stock-critico"
+                       id="stockCritico"
                        min="0">
 
             </div>
@@ -142,7 +142,7 @@
 
                 <label>Imagen:</label>
 
-                <input type="file">
+                <input type="text" id="imagen" placeholder="Nombre del archivo en img/ (opcional)">
 
             </div>
 
@@ -156,71 +156,6 @@
     </main>
 
 </div>
-
-<script>
-
-const formulario =
-    document.getElementById("form-producto");
-
-formulario.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const codigo =
-        document.getElementById("codigo").value;
-
-    const nombre =
-        document.getElementById("nombre-producto").value;
-
-    const precio =
-        document.getElementById("precio").value;
-
-    const stock =
-        document.getElementById("stock").value;
-
-    const categoria =
-        document.getElementById("categoria").value;
-
-    if (codigo.length < 3) {
-
-        alert("El código debe tener mínimo 3 caracteres");
-        return;
-
-    }
-
-    if (nombre.trim() === "") {
-
-        alert("El nombre es obligatorio");
-        return;
-
-    }
-
-    if (precio === "" || precio < 0) {
-
-        alert("Ingrese un precio válido");
-        return;
-
-    }
-
-    if (stock === "" || stock < 0) {
-
-        alert("Ingrese un stock válido");
-        return;
-
-    }
-
-    if (categoria === "") {
-
-        alert("Seleccione una categoría");
-        return;
-
-    }
-
-    alert("Producto creado correctamente");
-
-});
-
-</script>
 
 <script src="../../js/admin-productos.js"></script>
 

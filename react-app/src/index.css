@@ -1,0 +1,71 @@
+body {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+.hero {
+  min-height: 500px;
+  background-image: url("/img/estadio.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-contenido {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.hero h1 {
+  color: #fff;
+}
+
+.producto-card {
+  border-radius: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+.producto-img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.btn-dark:hover {
+  background-color: #00c853;
+  border-color: #00c853;
+}
+
+.admin-menu {
+  background-color: #111;
+  color: #fff;
+}
+
+.admin-menu h2 {
+  color: #39ff14;
+}
+
+.admin-menu .list-group-item {
+  background-color: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.admin-menu .list-group-item:hover {
+  background-color: #39ff14;
+  color: #000;
+}
+
+.admin-menu .list-group-item.active {
+  background-color: #39ff14;
+  border-color: #39ff14;
+  color: #000;
+  font-weight: bold;
+}

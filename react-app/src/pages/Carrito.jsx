@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCarrito } from "../context/CarritoContext";
 import { formatearPrecio } from "../utils/validaciones";
 import Mensaje from "../components/Mensaje";
 
 function Carrito() {
+  const navigate = useNavigate();
   const {
     items,
     eliminar,
@@ -13,40 +13,9 @@ function Carrito() {
     total
   } = useCarrito();
 
-  const [direccion, setDireccion] = useState("");
-  const [errorDireccion, setErrorDireccion] = useState("");
-  const [mostrarModal, setMostrarModal] = useState(false);
-  const [mensaje, setMensaje] = useState({ tipo: "", texto: "" });
-
-  function abrirResumen() {
-    if (items.length === 0) {
-      setMensaje({ tipo: "warning", texto: "Tu carrito está vacío." });
-      return;
-    }
-    if (direccion.trim() === "") {
-      setErrorDireccion("Debes ingresar una dirección de entrega.");
-      return;
-    }
-    setErrorDireccion("");
-    setMensaje({ tipo: "", texto: "" });
-    setMostrarModal(true);
-  }
-
-  function confirmarPago() {
-    setMensaje({
-      tipo: "success",
-      texto: `Pago realizado correctamente. Tu pedido será enviado a: ${direccion}`
-    });
-    vaciar();
-    setDireccion("");
-    setMostrarModal(false);
-  }
-
   return (
     <main className="container py-5">
       <h2 className="text-center mb-4">Mi carrito</h2>
-
-      <Mensaje tipo={mensaje.tipo}>{mensaje.texto}</Mensaje>
 
       {items.length === 0 ? (
         <div className="text-center">
@@ -107,81 +76,15 @@ function Carrito() {
 
           <h3 className="text-end mt-4">Total: {formatearPrecio(total)}</h3>
 
-          <div className="mb-3">
-            <label className="form-label fw-bold" htmlFor="direccion-entrega">
-              Dirección de entrega
-            </label>
-            <textarea
-              id="direccion-entrega"
-              className="form-control"
-              maxLength="300"
-              value={direccion}
-              placeholder="Ingresa la dirección para el despacho a domicilio"
-              onChange={(evento) => setDireccion(evento.target.value)}
-            ></textarea>
-            <small className="text-danger">{errorDireccion}</small>
-          </div>
-
           <div className="d-flex gap-2">
             <button className="btn btn-outline-danger" onClick={vaciar}>
               Vaciar carrito
             </button>
-            <button className="btn btn-success" onClick={abrirResumen}>
-              Pagar
+            <button className="btn btn-success" onClick={() => navigate("/checkout")}>
+              Finalizar compra
             </button>
           </div>
         </>
-      )}
-
-      {mostrarModal && (
-        <div
-          className="modal d-block"
-          tabIndex="-1"
-          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
-        >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Resumen de compra</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setMostrarModal(false)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <ul className="list-group mb-3">
-                  {items.map((item) => (
-                    <li
-                      className="list-group-item d-flex justify-content-between"
-                      key={item.id}
-                    >
-                      <span>
-                        {item.nombre} x {item.cantidad}
-                      </span>
-                      <span>
-                        {formatearPrecio(item.precio * item.cantidad)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <h5 className="text-end">Total: {formatearPrecio(total)}</h5>
-                <p className="mb-0">Dirección de entrega: {direccion}</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setMostrarModal(false)}
-                >
-                  Cerrar
-                </button>
-                <button className="btn btn-success" onClick={confirmarPago}>
-                  Confirmar pago
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       )}
     </main>
   );

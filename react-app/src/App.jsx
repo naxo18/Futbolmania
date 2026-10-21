@@ -13,6 +13,8 @@ import Nosotros from "./pages/Nosotros";
 import Blogs from "./pages/Blogs";
 import BlogDetalle from "./pages/BlogDetalle";
 import NotFound from "./pages/NotFound";
+import Checkout from "./pages/Checkout";
+import CompraResultado from "./pages/CompraResultado";
 
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -28,6 +30,8 @@ function App() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/productos/:id" element={<DetalleProducto />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/compra-resultado" element={<CompraResultado />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/contacto" element={<Contacto />} />

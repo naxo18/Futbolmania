@@ -49,6 +49,11 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
+                <NavLink className={claseEnlace} to="/ofertas" onClick={() => setAbierto(false)}>
+                  Ofertas
+                </NavLink>
+              </li>
+              <li className="nav-item">
                 <NavLink className={claseEnlace} to="/nosotros" onClick={() => setAbierto(false)}>
                   Nosotros
                 </NavLink>

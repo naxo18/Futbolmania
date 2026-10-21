@@ -8,6 +8,20 @@ function crearStore(clave, semilla) {
   if (!Array.isArray(datos)) {
     datos = semilla;
     guardar(clave, datos);
+  } else {
+    const seedMap = new Map(semilla.map((p) => [p.id, p]));
+    let modificado = false;
+    datos = datos.map((p) => {
+      const s = seedMap.get(p.id);
+      if (s && s.oferta && p.oferta !== true) {
+        modificado = true;
+        return { ...p, oferta: s.oferta, precioOferta: s.precioOferta };
+      }
+      return p;
+    });
+    if (modificado) {
+      guardar(clave, datos);
+    }
   }
 
   const oyentes = new Set();
